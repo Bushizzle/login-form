@@ -52,9 +52,11 @@
   --color-bg: #1f2937;
   --color-bg-secondary: #111827;
   --color-bg-disabled: #374151;
-  --color-primary: #3b82f6;
-  --color-primary-hover: #2563eb;
-  --color-primary-active: #1d4ed8;
+
+  /* Darken primary so white text on primary meets WCAG AA contrast */
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+  --color-primary-active: #1e40af;
   --color-error: #f87171;
   --color-error-bg: #7f1d1d;
   --shadow-focus: 0 0 0 3px rgb(96 165 250 / 30%);
@@ -71,9 +73,11 @@
     --color-bg: #1f2937;
     --color-bg-secondary: #111827;
     --color-bg-disabled: #374151;
-    --color-primary: #3b82f6;
-    --color-primary-hover: #2563eb;
-    --color-primary-active: #1d4ed8;
+
+    /* Darken primary so white text on primary meets WCAG AA contrast */
+    --color-primary: #2563eb;
+    --color-primary-hover: #1d4ed8;
+    --color-primary-active: #1e40af;
     --color-error: #f87171;
     --color-error-bg: #7f1d1d;
     --shadow-focus: 0 0 0 3px rgb(96 165 250 / 30%);
@@ -87,7 +91,9 @@
   --color-border: #fff;
   --color-border-focus: #60a5fa;
   --color-error: #ff6b6b;
-  --color-primary: #60a5fa;
+
+  /* Keep strong contrast with white text */
+  --color-primary: #2563eb;
 }
 
 /* Better placeholder contrast in high contrast mode */
