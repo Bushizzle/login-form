@@ -30,7 +30,7 @@ export const PUPIL_OFFSET_MULTIPLIER = 0.15; // multiplier for pupil offset rela
 export const POINTER_DELTA_DIVISOR = 10; // divisor for pointer movement sensitivity
 
 // Poke count threshold
-export const REDDEN_THRESHOLD = 1; // number of pokes before eye reddens
+export const REDDEN_THRESHOLD = 2; // number of pokes before eye reddens
 
 // Thinking animation constants
 export const THINKING_ANIMATION_DURATION_MS = 1500; // milliseconds - thinking animation cycle duration

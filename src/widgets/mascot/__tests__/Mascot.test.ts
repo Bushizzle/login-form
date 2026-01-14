@@ -220,9 +220,12 @@ describe('Mascot', () => {
       expect(mascot.getEyelidState()).toBe('closed');
     });
 
-    it('should redden the eye after one poke', () => {
+    it('should redden the eye after two pokes', () => {
       const mascot = new Mascot();
       mascot.mount({ container });
+
+      mascot.poke();
+      expect(container.querySelector('.mascot--reddened')).toBeFalsy();
 
       mascot.poke();
 
