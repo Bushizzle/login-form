@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { useWatch } from 'react-hook-form';
 import { SignInForm } from 'features/auth/sign-in';
 import { useSignInForm } from 'features/auth/sign-in/model/useSignInForm';
-import { Mascot } from 'shared/ui/mascot';
+import { Mascot } from 'widgets/mascot';
 import styles from './SignInPage.module.pcss';
 
 export function SignInPage(): JSX.Element {
