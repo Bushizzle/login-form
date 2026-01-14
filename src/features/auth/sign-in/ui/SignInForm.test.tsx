@@ -51,7 +51,7 @@ describe('SignInForm', () => {
 
   function renderForm(overrideProps?: Partial<typeof defaultProps>): ReturnType<typeof render> {
     return render(
-      <MemoryRouter>
+      <MemoryRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <SignInForm {...defaultProps} {...overrideProps} />
       </MemoryRouter>
     );

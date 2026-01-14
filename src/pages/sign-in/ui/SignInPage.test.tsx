@@ -29,7 +29,7 @@ Object.defineProperty(window, 'matchMedia', {
 function renderSignInPage(): ReturnType<typeof render> {
   return render(
     <AccessibilityProvider>
-      <MemoryRouter>
+      <MemoryRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <SignInPage />
       </MemoryRouter>
     </AccessibilityProvider>

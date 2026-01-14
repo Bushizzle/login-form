@@ -11,7 +11,10 @@ import './styles/global.pcss';
 export function App(): JSX.Element {
   return (
     <AccessibilityProvider>
-      <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <BrowserRouter
+        basename={import.meta.env.BASE_URL}
+        future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
+      >
         <Header />
         <main>
           <Routes>

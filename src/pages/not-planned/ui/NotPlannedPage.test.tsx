@@ -6,7 +6,7 @@ import { NotPlannedPage } from './NotPlannedPage';
 describe('NotPlannedPage', () => {
   it('renders default message', () => {
     render(
-      <MemoryRouter>
+      <MemoryRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
         <NotPlannedPage />
       </MemoryRouter>
     );
@@ -18,7 +18,10 @@ describe('NotPlannedPage', () => {
 
   it('uses feature from query param as title', () => {
     render(
-      <MemoryRouter initialEntries={['/not-planned?feature=Sign%20in%20with%20Google']}>
+      <MemoryRouter
+        future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
+        initialEntries={['/not-planned?feature=Sign%20in%20with%20Google']}
+      >
         <NotPlannedPage />
       </MemoryRouter>
     );

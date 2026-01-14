@@ -15,6 +15,10 @@ While building this test project, I relied on three core principles:
 - [Live Site](https://bushizzle.github.io/login-form/)
 - [Source Code](https://github.com/bushizzle/login-form)
 
+## Lighthouse
+
+![Lighthouse results](docs/lighthouse.gif)
+
 ## Demo Credentials
 
 - **Email**: `demo@example.com`
