@@ -7,7 +7,7 @@ A polished, accessible login SPA built with React, TypeScript, and modern toolin
 While building this test project, I relied on three core principles:
 
 1. **Accessibility first** — the form must be usable by everyone. Any person should be able to sign in regardless of device, input method, or assistive technology.
-2. **Pleasant UX** — interacting with the form should feel smooth and friendly. That’s why it’s simple and minimalist, and why I spent time crafting a playful eye mascot that flirts, squints, reacts to the cursor, and looks away when the user types the password.
+2. **Pleasant UX** — interacting with the form should feel smooth, friendly, and fast. That’s why it’s simple and minimalist, and why I spent time crafting a playful eye mascot that flirts, squints, doesn’t like when the cursor is too close, and looks away when the user types the password.
 3. **Maintainable architecture** — the project structure should be clear, scalable, and easy to extend by other team members.
 
 ## Live Demo
