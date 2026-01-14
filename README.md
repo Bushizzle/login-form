@@ -10,15 +10,6 @@ While building this test project, I relied on three core principles:
 2. **Pleasant UX** — interacting with the form should feel smooth and friendly. That’s why it’s simple and minimalist, and why I spent time crafting a playful eye mascot that flirts, squints, reacts to the cursor, and looks away when the user types the password.
 3. **Maintainable architecture** — the project structure should be clear, scalable, and easy to extend by other team members.
 
-## Tech Choices (Why this stack)
-
-- **React**: required by the vacancy description and familiar to most reviewers, which makes it easier to assess both UI/UX decisions and code quality.
-- **Mocked `fetch()` instead of a backend**: keeps the project fully static (ideal for GitHub Pages) while still exercising realistic request/response flows.
-- **Mascot is framework-agnostic (not tied to React)**: implemented as an imperative component/class that can be mounted/unmounted. This reduces React render overhead and makes it easy to disable or replace if needed.
-- **React Hook Form + Zod**: a proven, well-known combo for typed validation with minimal boilerplate. It’s also a practical choice for a test task: reliable, fast to implement, and easy to review.
-- **Vite**: fast dev server/build, good TS/React experience, and easy GitHub Pages configuration.
-- **Testing Library + Vitest**: modern, fast test runner with a user-centric testing approach for UI.
-
 ## Live Demo
 
 - [Live Site](https://bushizzle.github.io/login-form/)
@@ -166,6 +157,16 @@ Never import "up" the stack.
 - **React Hook Form** + **Zod** for form validation
 - **Husky** + **lint-staged** for git hooks
 - **ESLint** + **Stylelint** for code quality
+
+## Tech Choices (Why this stack)
+
+- **React**: required by the vacancy description and familiar to most reviewers, which makes it easier to assess both UI/UX decisions and code quality.
+- **Mocked `fetch()` instead of a backend**: keeps the project fully static (ideal for GitHub Pages) while still exercising realistic request/response flows.
+- **Mascot is framework-agnostic (not tied to React)**: implemented as an imperative component/class that can be mounted/unmounted. This reduces React render overhead and makes it easy to disable or replace if needed.
+- **React Hook Form + Zod**: a proven, well-known combo for typed validation with minimal boilerplate. It’s also a practical choice for a test task: reliable, fast to implement, and easy to review.
+- **Vite**: fast dev server/build, good TS/React experience, and easy GitHub Pages configuration.
+- **Testing Library + Vitest**: modern, fast test runner with a user-centric testing approach for UI.
+
 
 ## License
 
