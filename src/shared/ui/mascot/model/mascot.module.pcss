@@ -1,0 +1,214 @@
+.container {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto calc(var(--spacing-lg) + 30px);
+
+  /* Design tokens for mascot colors */
+  --mascot-stroke: #1f2937;
+  --mascot-bg: white;
+  --mascot-pupil: #1f2937;
+  --mascot-reddened-bg: #ffe5e5;
+}
+
+.eyeButton {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.eye {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: var(--mascot-bg);
+  border: 2px solid var(--mascot-stroke);
+  overflow: hidden;
+  transition: background-color var(--transition-base);
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+.eye:global(.mascot--reddened) {
+  background-color: var(--mascot-reddened-bg);
+}
+
+.iris {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  /* Use fixed pixel values to avoid font-size scaling */
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #87ceeb, #4682b4);
+  transform: translate(
+    calc(-50% + var(--pupil-x, 0px) + var(--thinking-offset-x, 0px)),
+    calc(-50% + var(--pupil-y, 0px))
+  );
+  transition: transform var(--transition-base);
+  z-index: 1;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+.pupil {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--mascot-pupil);
+  transform: translate(
+    calc(-50% + var(--pupil-offset-x, 0px)),
+    calc(-50% + var(--pupil-offset-y, 0px))
+  );
+  transition: transform var(--transition-base), width var(--transition-base),
+    height var(--transition-base);
+  z-index: 2;
+  pointer-events: none;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+.eyelidTop,
+.eyelidBottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: var(--mascot-stroke);
+  z-index: 3;
+  transition: height var(--transition-base);
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+.eyelidTop {
+  top: 0;
+
+  /* Use fixed pixel values to avoid font-size scaling */
+  height: 4px;
+  border-radius: 50% 50% 0 0;
+}
+
+.eyelidBottom {
+  bottom: 0;
+
+  /* Use fixed pixel values to avoid font-size scaling */
+  height: 4px;
+  border-radius: 0 0 50% 50%;
+}
+
+.eyelidTop:global(.mascot--closed),
+.eyelidBottom:global(.mascot--closed) {
+  height: 24px;
+}
+
+.eyelidTop:global(.mascot--squinting),
+.eyelidBottom:global(.mascot--squinting) {
+  height: 18px;
+}
+
+.eyelidTop:global(.mascot--squintingLight),
+.eyelidBottom:global(.mascot--squintingLight) {
+  height: 12px;
+}
+
+.eyelidTop:global(.mascot--blinking),
+.eyelidBottom:global(.mascot--blinking) {
+  animation: quickBlink var(--mascot-blink-ms, 400ms) ease-in-out both;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+/* State variations */
+.neutral {
+  /* Default state */
+}
+
+.alert {
+  width: 12.5px;
+  height: 12.5px;
+}
+
+.relaxed {
+  width: 8.75px;
+  height: 8.75px;
+}
+
+.poke {
+  /* No animation on pupil - only eyelids blink */
+}
+
+.thinking {
+  /* Pupil size stays normal during thinking */
+}
+
+.iris.thinking {
+  transition: none;
+  animation: thinkingMove 1.5s ease-in-out infinite;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@keyframes thinkingMove {
+  0%,
+  100% {
+    --thinking-offset-x: -6px;
+  }
+
+  50% {
+    --thinking-offset-x: 6px;
+  }
+}
+
+.eyelidTop:global(.mascot--thinking),
+.eyelidBottom:global(.mascot--thinking) {
+  height: 18px;
+}
+
+
+@keyframes quickBlink {
+  0% {
+    /* Use fixed pixel values to avoid font-size scaling */
+    height: 4px;
+  }
+
+  50% {
+    /* Use fixed pixel values to avoid font-size scaling */
+    height: 24px;
+  }
+
+  100% {
+    /* Use fixed pixel values to avoid font-size scaling */
+    height: 4px;
+  }
+}
+
+
+

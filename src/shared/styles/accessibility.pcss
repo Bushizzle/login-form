@@ -1,0 +1,98 @@
+/**
+ * Accessibility styles based on user preferences
+ */
+
+/* Font size options */
+.font-size-normal {
+  font-size: 16px;
+}
+
+.font-size-large {
+  font-size: 18px;
+}
+
+.font-size-xlarge {
+  font-size: 20px;
+}
+
+/* High contrast mode */
+.contrast-high {
+  --color-text: #000;
+  --color-text-secondary: #000;
+  --color-border: #000;
+  --color-border-focus: #00f;
+  --color-error: #c00;
+  --color-primary: #00f;
+  --color-primary-hover: #00c;
+  --color-primary-active: #009;
+  --shadow-focus: 0 0 0 3px rgb(0 0 255 / 30%);
+}
+
+.contrast-high body {
+  color: var(--color-text);
+}
+
+.contrast-high input,
+.contrast-high button {
+  border-width: 2px;
+}
+
+.contrast-high :focus-visible {
+  outline: 3px solid var(--color-border-focus);
+  outline-offset: 3px;
+}
+
+/* Dark theme */
+.theme-dark {
+  --color-text: #f9fafb;
+  --color-text-secondary: #d1d5db;
+  --color-text-muted: #9ca3af;
+  --color-border: #374151;
+  --color-border-focus: #60a5fa;
+  --color-bg: #1f2937;
+  --color-bg-secondary: #111827;
+  --color-bg-disabled: #374151;
+  --color-primary: #3b82f6;
+  --color-primary-hover: #2563eb;
+  --color-primary-active: #1d4ed8;
+  --color-error: #f87171;
+  --color-error-bg: #7f1d1d;
+  --shadow-focus: 0 0 0 3px rgb(96 165 250 / 30%);
+}
+
+/* Auto theme - respect system preference */
+.theme-auto {
+  @media (prefers-color-scheme: dark) {
+    --color-text: #f9fafb;
+    --color-text-secondary: #d1d5db;
+    --color-text-muted: #9ca3af;
+    --color-border: #374151;
+    --color-border-focus: #60a5fa;
+    --color-bg: #1f2937;
+    --color-bg-secondary: #111827;
+    --color-bg-disabled: #374151;
+    --color-primary: #3b82f6;
+    --color-primary-hover: #2563eb;
+    --color-primary-active: #1d4ed8;
+    --color-error: #f87171;
+    --color-error-bg: #7f1d1d;
+    --shadow-focus: 0 0 0 3px rgb(96 165 250 / 30%);
+  }
+}
+
+/* High contrast + dark theme */
+.contrast-high.theme-dark {
+  --color-text: #fff;
+  --color-text-secondary: #fff;
+  --color-border: #fff;
+  --color-border-focus: #60a5fa;
+  --color-error: #ff6b6b;
+  --color-primary: #60a5fa;
+}
+
+/* Better placeholder contrast in high contrast mode */
+.contrast-high input::placeholder {
+  color: var(--color-text-secondary);
+  opacity: 1;
+}
+
