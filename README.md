@@ -17,7 +17,7 @@ While building this test project, I relied on three core principles:
 
 ## Lighthouse
 
-![Lighthouse results](docs/lighthouse.gif)
+![Lighthouse results](docs/lighthouse.png)
 
 ## Demo Credentials
 
