@@ -19,6 +19,7 @@ export function useSignInForm(): UseSignInFormReturn {
   const [state, setState] = useState<SignInState>({
     isLoading: false,
     error: null,
+    isSuccess: false,
   });
 
   const form = useForm<CredentialsFormData>({
@@ -28,23 +29,23 @@ export function useSignInForm(): UseSignInFormReturn {
   });
 
   const clearError = useCallback((): void => {
-    setState((prev) => ({ ...prev, error: null }));
+    setState((prev) => ({ ...prev, error: null, isSuccess: false }));
   }, []);
 
   const onSubmit = useCallback(
     async (data: CredentialsFormData): Promise<void> => {
-      setState({ isLoading: true, error: null });
+      setState({ isLoading: true, error: null, isSuccess: false });
 
       try {
         const result = await signIn(data.email, data.password);
 
         if (result.success) {
-          setState({ isLoading: false, error: null });
+          setState({ isLoading: false, error: null, isSuccess: true });
         } else {
-          setState({ isLoading: false, error: result.error });
+          setState({ isLoading: false, error: result.error, isSuccess: false });
         }
       } catch {
-        setState({ isLoading: false, error: 'NETWORK_ERROR' });
+        setState({ isLoading: false, error: 'NETWORK_ERROR', isSuccess: false });
       }
     },
     []

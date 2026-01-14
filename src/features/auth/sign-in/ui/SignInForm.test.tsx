@@ -43,7 +43,7 @@ describe('SignInForm', () => {
     register: mockRegister,
     handleSubmit: mockHandleSubmit,
     formState: mockFormState,
-    state: { isLoading: false, error: null } as SignInState,
+    state: { isLoading: false, error: null, isSuccess: false } as SignInState,
     onSubmit: vi.fn(),
     clearError: vi.fn(),
   };
@@ -82,6 +82,7 @@ describe('SignInForm', () => {
     const stateWithError: SignInState = {
       isLoading: false,
       error: 'INVALID_CREDENTIALS',
+      isSuccess: false,
     };
 
     render(<SignInForm {...defaultProps} state={stateWithError} />);
@@ -94,6 +95,7 @@ describe('SignInForm', () => {
     const stateWithError: SignInState = {
       isLoading: false,
       error: 'NETWORK_ERROR',
+      isSuccess: false,
     };
 
     render(<SignInForm {...defaultProps} state={stateWithError} />);
@@ -105,6 +107,7 @@ describe('SignInForm', () => {
     const loadingState: SignInState = {
       isLoading: true,
       error: null,
+      isSuccess: false,
     };
 
     render(<SignInForm {...defaultProps} state={loadingState} />);
@@ -112,6 +115,19 @@ describe('SignInForm', () => {
     const submitButton = screen.getByRole('button', { name: /signing in/i });
     expect(submitButton).toBeDisabled();
     expect(submitButton).toHaveAttribute('type', 'submit');
+  });
+
+  it('displays success alert when sign in succeeds', () => {
+    const successState: SignInState = {
+      isLoading: false,
+      error: null,
+      isSuccess: true,
+    };
+
+    render(<SignInForm {...defaultProps} state={successState} />);
+
+    expect(screen.getByTestId('auth-success-alert')).toBeInTheDocument();
+    expect(screen.getByText(/signed in successfully/i)).toBeInTheDocument();
   });
 
   it('focuses first invalid field on submit', async () => {

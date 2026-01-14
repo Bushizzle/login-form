@@ -104,6 +104,11 @@ export function SignInForm({
 
   return (
     <form onSubmit={handleSubmitWrapper} className={styles.form} noValidate data-testid="sign-in-form">
+      {state.isSuccess && !state.error && (
+        <Alert variant="success" className={styles.alert} data-testid="auth-success-alert">
+          Signed in successfully.
+        </Alert>
+      )}
       {state.error && (
         <Alert
           variant="error"
