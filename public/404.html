@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Form</title>
+    <script type="text/javascript">
+      // GitHub Pages SPA fallback.
+      // Redirects /login-form/some/route -> /login-form/?/some/route
+      // (index.html will decode it and restore the URL via history.replaceState)
+      (function () {
+        var segmentCount = 1; // repo name segment: /login-form/
+        var l = window.location;
+        var segments = l.pathname.split('/');
+        var base = segments.slice(0, 1 + segmentCount).join('/');
+        var rest = segments.slice(1 + segmentCount).join('/');
+        var search = l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '';
+        var hash = l.hash || '';
+        l.replace(l.protocol + '//' + l.host + base + '/?/' + rest + search + hash);
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
+
+
