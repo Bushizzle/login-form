@@ -1,6 +1,7 @@
 import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { MemoryRouter } from 'react-router-dom';
 import { SignInPage } from './SignInPage';
 import { AccessibilityProvider } from 'shared/contexts';
 import * as authClient from 'shared/api/auth';
@@ -28,7 +29,9 @@ Object.defineProperty(window, 'matchMedia', {
 function renderSignInPage(): ReturnType<typeof render> {
   return render(
     <AccessibilityProvider>
-      <SignInPage />
+      <MemoryRouter>
+        <SignInPage />
+      </MemoryRouter>
     </AccessibilityProvider>
   );
 }

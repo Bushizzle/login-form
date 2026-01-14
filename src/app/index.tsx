@@ -5,6 +5,7 @@ import { AccessibilityProvider } from 'shared/contexts';
 import { installMockFetch } from 'shared/api/mockFetch/installMockFetch';
 import { Header } from 'widgets/header';
 import { SignInPage } from 'pages/sign-in';
+import { ForgotPasswordPage } from 'pages/forgot-password';
 import './styles/global.pcss';
 
 export function App(): JSX.Element {
@@ -15,6 +16,7 @@ export function App(): JSX.Element {
         <main>
           <Routes>
             <Route path="/" element={<SignInPage />} />
+            <Route path="/forgot-password" element={<ForgotPasswordPage />} />
           </Routes>
         </main>
       </BrowserRouter>

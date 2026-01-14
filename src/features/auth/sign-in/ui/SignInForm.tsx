@@ -1,6 +1,6 @@
 import { useRef, useEffect, useCallback } from 'react';
 import type { UseFormRegister, UseFormHandleSubmit, UseFormStateReturn } from 'react-hook-form';
-import { TextField, PasswordField, Button, Alert } from 'shared/ui';
+import { TextField, PasswordField, Button, Alert, AppLink } from 'shared/ui';
 import type { CredentialsFormData } from '../model/schema';
 import type { SignInState } from '../model/types';
 import styles from './SignInForm.module.pcss';
@@ -173,6 +173,12 @@ export function SignInForm({
       >
         {state.isLoading ? 'Signing in...' : 'Sign in'}
       </Button>
+
+      <div className={styles.forgotPassword}>
+        <AppLink to="/forgot-password" variant="muted" data-testid="forgot-password-link">
+          Forgot password?
+        </AppLink>
+      </div>
     </form>
   );
 }

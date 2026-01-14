@@ -1,6 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen, waitFor } from '@testing-library/react';
 import type { UseFormRegister, UseFormHandleSubmit, UseFormStateReturn } from 'react-hook-form';
+import { MemoryRouter } from 'react-router-dom';
 import { SignInForm } from './SignInForm';
 import type { CredentialsFormData } from '../model/schema';
 import type { SignInState } from '../model/types';
@@ -48,12 +49,21 @@ describe('SignInForm', () => {
     clearError: vi.fn(),
   };
 
-  it('renders email and password fields', () => {
-    render(<SignInForm {...defaultProps} />);
+  function renderForm(overrideProps?: Partial<typeof defaultProps>): ReturnType<typeof render> {
+    return render(
+      <MemoryRouter>
+        <SignInForm {...defaultProps} {...overrideProps} />
+      </MemoryRouter>
+    );
+  }
 
-    expect(screen.getByText(/email/i)).toBeInTheDocument();
-    expect(screen.getByText(/password/i)).toBeInTheDocument();
+  it('renders email and password fields', () => {
+    renderForm();
+
+    expect(screen.getByTestId('email-input')).toBeInTheDocument();
+    expect(screen.getByTestId('password-input')).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /sign in/i })).toBeInTheDocument();
+    expect(screen.getByTestId('forgot-password-link')).toBeInTheDocument();
   });
 
   it('displays email error when present', () => {
@@ -62,7 +72,7 @@ describe('SignInForm', () => {
       errors: { email: { message: 'Invalid email', type: 'validation' } },
     };
 
-    render(<SignInForm {...defaultProps} formState={formStateWithError} />);
+    renderForm({ formState: formStateWithError });
 
     expect(screen.getByText('Invalid email')).toBeInTheDocument();
   });
@@ -73,7 +83,7 @@ describe('SignInForm', () => {
       errors: { password: { message: 'Password required', type: 'validation' } },
     };
 
-    render(<SignInForm {...defaultProps} formState={formStateWithError} />);
+    renderForm({ formState: formStateWithError });
 
     expect(screen.getByText('Password required')).toBeInTheDocument();
   });
@@ -85,7 +95,7 @@ describe('SignInForm', () => {
       isSuccess: false,
     };
 
-    render(<SignInForm {...defaultProps} state={stateWithError} />);
+    renderForm({ state: stateWithError });
 
     expect(screen.getByRole('alert')).toBeInTheDocument();
     expect(screen.getByText(/invalid email or password/i)).toBeInTheDocument();
@@ -98,7 +108,7 @@ describe('SignInForm', () => {
       isSuccess: false,
     };
 
-    render(<SignInForm {...defaultProps} state={stateWithError} />);
+    renderForm({ state: stateWithError });
 
     expect(screen.getByText(/network error/i)).toBeInTheDocument();
   });
@@ -110,7 +120,7 @@ describe('SignInForm', () => {
       isSuccess: false,
     };
 
-    render(<SignInForm {...defaultProps} state={loadingState} />);
+    renderForm({ state: loadingState });
 
     const submitButton = screen.getByRole('button', { name: /signing in/i });
     expect(submitButton).toBeDisabled();
@@ -124,7 +134,7 @@ describe('SignInForm', () => {
       isSuccess: true,
     };
 
-    render(<SignInForm {...defaultProps} state={successState} />);
+    renderForm({ state: successState });
 
     expect(screen.getByTestId('auth-success-alert')).toBeInTheDocument();
     expect(screen.getByText(/signed in successfully/i)).toBeInTheDocument();
@@ -138,7 +148,7 @@ describe('SignInForm', () => {
       errors: { email: { message: 'Invalid email', type: 'validation' } },
     };
 
-    render(<SignInForm {...defaultProps} formState={formStateWithError} />);
+    renderForm({ formState: formStateWithError });
 
     await waitFor(() => {
       const emailInput = screen.getByLabelText(/email/i);
