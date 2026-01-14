@@ -64,6 +64,9 @@ describe('SignInForm', () => {
     expect(screen.getByTestId('password-input')).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /sign in/i })).toBeInTheDocument();
     expect(screen.getByTestId('forgot-password-link')).toBeInTheDocument();
+    expect(screen.getByTestId('social-google')).toBeInTheDocument();
+    expect(screen.getByTestId('social-apple')).toBeInTheDocument();
+    expect(screen.getByTestId('social-facebook')).toBeInTheDocument();
   });
 
   it('displays email error when present', () => {

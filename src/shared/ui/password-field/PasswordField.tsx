@@ -1,4 +1,5 @@
 import { type InputHTMLAttributes, useState, useEffect, forwardRef, useId } from 'react';
+import { EyeIcon, EyeOffIcon } from 'shared/ui';
 import styles from './PasswordField.module.pcss';
 
 interface PasswordFieldProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
@@ -68,9 +69,7 @@ export const PasswordField = forwardRef<HTMLInputElement, PasswordFieldProps>(
               aria-controls={fieldId}
             >
               {isVisible ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
+                <EyeIcon
                   width="24"
                   height="24"
                   fill="none"
@@ -80,14 +79,9 @@ export const PasswordField = forwardRef<HTMLInputElement, PasswordFieldProps>(
                   strokeLinejoin="round"
                   aria-hidden="true"
                   focusable="false"
-                >
-                  <path d="M2 12s4-6 10-6 10 6 10 6-4 6-10 6-10-6-10-6z" />
-                  <circle cx="12" cy="12" r="3" />
-                </svg>
+                />
               ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
+                <EyeOffIcon
                   width="24"
                   height="24"
                   fill="none"
@@ -97,12 +91,7 @@ export const PasswordField = forwardRef<HTMLInputElement, PasswordFieldProps>(
                   strokeLinejoin="round"
                   aria-hidden="true"
                   focusable="false"
-                >
-                  <path d="M4 12c2.8 2.8 5.8 4 8 4s5.2-1.2 8-4" />
-                  <path d="M9.3 16.1l-.5 1.3" />
-                  <path d="M12 16.6v1.5" />
-                  <path d="M14.7 16.1l.5 1.3" />
-                </svg>
+                />
               )}
             </button>
           )}

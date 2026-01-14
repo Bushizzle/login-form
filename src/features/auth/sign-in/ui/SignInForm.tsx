@@ -1,6 +1,6 @@
 import { useRef, useEffect, useCallback } from 'react';
 import type { UseFormRegister, UseFormHandleSubmit, UseFormStateReturn } from 'react-hook-form';
-import { TextField, PasswordField, Button, Alert, AppLink } from 'shared/ui';
+import { TextField, PasswordField, Button, Alert, AppLink, GoogleIcon, AppleIcon, FacebookIcon } from 'shared/ui';
 import type { CredentialsFormData } from '../model/schema';
 import type { SignInState } from '../model/types';
 import styles from './SignInForm.module.pcss';
@@ -175,9 +175,48 @@ export function SignInForm({
       </Button>
 
       <div className={styles.forgotPassword}>
-        <AppLink to="/forgot-password" variant="muted" data-testid="forgot-password-link">
+        <AppLink
+          to="/not-planned?feature=Forgot%20password"
+          variant="muted"
+          data-testid="forgot-password-link"
+        >
           Forgot password?
         </AppLink>
+      </div>
+
+      <div className={styles.socialSection} aria-label="Alternative sign in methods">
+        <div className={styles.socialRow}>
+          <AppLink
+            to="/not-planned?feature=Sign%20in%20with%20Google"
+            appearance="button"
+            className={styles.socialButton}
+            data-testid="social-google"
+            aria-label="Sign in with Google"
+            title="Sign in with Google"
+          >
+            <GoogleIcon className={styles.socialIcon} aria-hidden="true" focusable="false" />
+          </AppLink>
+          <AppLink
+            to="/not-planned?feature=Sign%20in%20with%20Apple"
+            appearance="button"
+            className={styles.socialButton}
+            data-testid="social-apple"
+            aria-label="Sign in with Apple"
+            title="Sign in with Apple"
+          >
+            <AppleIcon className={styles.socialIcon} aria-hidden="true" focusable="false" />
+          </AppLink>
+          <AppLink
+            to="/not-planned?feature=Sign%20in%20with%20Facebook"
+            appearance="button"
+            className={styles.socialButton}
+            data-testid="social-facebook"
+            aria-label="Sign in with Facebook"
+            title="Sign in with Facebook"
+          >
+            <FacebookIcon className={styles.socialIcon} aria-hidden="true" focusable="false" />
+          </AppLink>
+        </div>
       </div>
     </form>
   );

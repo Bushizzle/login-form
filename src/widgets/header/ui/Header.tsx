@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { useAccessibility } from 'shared/contexts/AccessibilityContext';
+import { SettingsIcon } from 'shared/ui';
 import styles from './Header.module.pcss';
 
 export function Header(): JSX.Element {
@@ -101,7 +102,13 @@ export function Header(): JSX.Element {
             aria-label="Accessibility settings"
             data-testid="accessibility-menu-button"
           >
-            <span aria-hidden="true">⚙️</span>
+            <SettingsIcon
+              aria-hidden="true"
+              focusable="false"
+              width="18"
+              height="18"
+              style={{ display: 'block' }}
+            />
             <span className={styles.visuallyHidden}>Accessibility settings</span>
           </button>
           {isMenuOpen && (
