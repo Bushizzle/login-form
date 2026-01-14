@@ -220,15 +220,14 @@ describe('Mascot', () => {
       expect(mascot.getEyelidState()).toBe('closed');
     });
 
-    it('should increment poke count', () => {
+    it('should redden the eye after one poke', () => {
       const mascot = new Mascot();
       mascot.mount({ container });
 
       mascot.poke();
-      mascot.poke();
-      mascot.poke();
 
-      // After 3 pokes, eye should be reddened (tested via state)
+      // Eye should be reddened via global class on eye element
+      expect(container.querySelector('.mascot--reddened')).toBeTruthy();
       expect(mascot.getState()).toBe('poke');
     });
 
