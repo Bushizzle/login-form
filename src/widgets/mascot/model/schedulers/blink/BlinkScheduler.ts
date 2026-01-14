@@ -1,4 +1,4 @@
-import type { TimerBag } from './timers';
+import type { TimerBag } from '../../../infra/timers/TimerBag';
 
 export interface BlinkSchedulerDeps {
   timers: TimerBag;

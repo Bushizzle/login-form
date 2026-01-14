@@ -1,6 +1,6 @@
-import { BlinkScheduler } from './blinkScheduler';
-import type { TimerBag } from './timers';
-import { BLINK_DELAY_MIN_MS, BLINK_DELAY_MAX_MS } from './constants';
+import { BlinkScheduler } from './BlinkScheduler';
+import type { TimerBag } from '../../../infra/timers/TimerBag';
+import { BLINK_DELAY_MIN_MS, BLINK_DELAY_MAX_MS } from '../../constants';
 
 export interface BlinkSchedulerDeps {
   timers: TimerBag;

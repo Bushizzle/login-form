@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { onPointerActivity } from './pointerIdle';
-import { TimerBag } from './timers';
+import { onPointerActivity } from '../infra/pointer';
+import { TimerBag } from '../infra/timers';
 
 describe('onPointerActivity', () => {
   let timers: TimerBag;

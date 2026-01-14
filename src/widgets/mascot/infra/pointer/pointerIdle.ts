@@ -1,4 +1,4 @@
-import type { TimerBag } from './timers';
+import type { TimerBag } from '../timers/TimerBag';
 
 export interface PointerIdleParams {
   timers: TimerBag;

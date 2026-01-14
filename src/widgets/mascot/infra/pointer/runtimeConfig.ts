@@ -1,4 +1,4 @@
-import type { MascotConfig } from './types';
+import type { MascotConfig } from '../../model/types';
 
 /**
  * Resolve runtime configuration by detecting user preferences.

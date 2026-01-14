@@ -1,5 +1,5 @@
-import type { EyePosition } from './types';
-import type { TimerBag } from './timers';
+import type { EyePosition } from '../../types';
+import type { TimerBag } from '../../../infra/timers/TimerBag';
 
 export interface GlanceDelays {
   durationMin: number;

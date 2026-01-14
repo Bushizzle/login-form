@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { Mascot } from './Mascot';
-import type { MascotState, EyelidState } from './types';
+import { Mascot } from '../model/Mascot';
+import type { MascotState, EyelidState } from '../model/types';
 
 describe('Mascot', () => {
   let container: HTMLElement;

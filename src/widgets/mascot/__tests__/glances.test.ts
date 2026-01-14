@@ -1,7 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { GlanceScheduler } from './glances';
-import { TimerBag } from './timers';
-import type { GlanceDeps } from './glances';
+import { GlanceScheduler, type GlanceDeps } from '../model/schedulers/glance/GlanceScheduler';
+import { TimerBag } from '../infra/timers';
 
 describe('GlanceScheduler', () => {
   let timers: TimerBag;

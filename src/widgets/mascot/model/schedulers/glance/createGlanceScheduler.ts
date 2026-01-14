@@ -1,6 +1,6 @@
-import { GlanceScheduler } from './glances';
-import type { TimerBag } from './timers';
-import type { MascotConfig } from './types';
+import { GlanceScheduler } from './GlanceScheduler';
+import type { TimerBag } from '../../../infra/timers/TimerBag';
+import type { MascotConfig } from '../../types';
 import {
   GLANCE_DURATION_MIN_MS,
   GLANCE_DURATION_MAX_MS,
@@ -10,7 +10,7 @@ import {
   GLANCE_DELAY_CLOSE_MAX_MS,
   GLANCE_DELAY_FAR_MIN_MS,
   GLANCE_DELAY_FAR_MAX_MS,
-} from './constants';
+} from '../../constants';
 
 export interface GlanceSchedulerDeps {
   timers: TimerBag;

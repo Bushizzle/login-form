@@ -4,7 +4,7 @@ import type {
   MascotConfig,
   EyelidState,
 } from './types';
-import styles from './mascot.module.pcss';
+import styles from '../ui/mascot.module.pcss';
 import {
   SQUINT_THRESHOLD,
   EXPAND_THRESHOLD,
@@ -17,22 +17,13 @@ import {
   THINKING_ANIMATION_DURATION_MS,
   THINKING_ANIMATION_AMPLITUDE_PX,
 } from './constants';
-import { TimerBag } from './timers';
-import { GlanceScheduler } from './glances';
-import { BlinkScheduler } from './blinkScheduler';
-import { createGlanceScheduler } from './createGlanceScheduler';
-import { createBlinkScheduler } from './createBlinkScheduler';
-import { resolveRuntimeConfig } from './runtimeConfig';
-import { onPointerActivity } from './pointerIdle';
+import { TimerBag } from '../infra/timers/TimerBag';
+import { GlanceScheduler, BlinkScheduler, createGlanceScheduler, createBlinkScheduler } from './schedulers';
+import { resolveRuntimeConfig, onPointerActivity, startWindowPointerTracking, type WindowPointerTrackingController, type PointerMetrics } from '../infra/pointer';
 import {
   resolveStateWithVeryClose,
   resolveEyelidFromProximity,
 } from './behavior';
-import {
-  startWindowPointerTracking,
-  type WindowPointerTrackingController,
-  type PointerMetrics,
-} from './windowPointerTracking';
 import { createMascotDom, destroyMascotDom, type MascotDom } from '../lib/dom';
 import { renderMascot, type MascotView } from '../lib/render';
 

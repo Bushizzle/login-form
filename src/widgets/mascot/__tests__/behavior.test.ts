@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import {
   resolveStateWithVeryClose,
   resolveEyelidFromProximity,
-} from './behavior';
+} from '../model/behavior';
 
 describe('behavior', () => {
   describe('resolveStateWithVeryClose', () => {

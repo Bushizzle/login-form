@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { startWindowPointerTracking } from './windowPointerTracking';
+import { startWindowPointerTracking } from '../infra/pointer';
 
 describe('startWindowPointerTracking', () => {
   let container: HTMLElement;
