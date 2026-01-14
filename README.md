@@ -71,9 +71,9 @@ This project follows **Feature-Sliced Design (FSD)** with strict import boundari
 
 - **app**: Application entry point and global styles
 - **pages**: Page-level components
-- **widgets**: Reusable composition components (optional)
-- **features**: Business logic features (auth, eye-mascot)
-- **entities**: Domain entities (credentials, session)
+- **widgets**: Reusable composition components (e.g. header, eye mascot)
+- **features**: Business logic features (auth)
+- **entities**: Domain entities (credentials)
 - **shared**: Shared utilities, UI primitives, API clients
 
 ### Import Rules
@@ -166,7 +166,6 @@ Never import "up" the stack.
 - **React Hook Form + Zod**: a proven, well-known combo for typed validation with minimal boilerplate. It’s also a practical choice for a test task: reliable, fast to implement, and easy to review.
 - **Vite**: fast dev server/build, good TS/React experience, and easy GitHub Pages configuration.
 - **Testing Library + Vitest**: modern, fast test runner with a user-centric testing approach for UI.
-
 
 ## License
 
